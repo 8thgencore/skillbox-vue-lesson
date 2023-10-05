@@ -1,5 +1,5 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
-  publicPath: "skillbox-vue-lesson/dist",
+  publicPath: "skillbox-vue-lesson",
   transpileDependencies: true,
 });
