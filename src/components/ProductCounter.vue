@@ -6,7 +6,7 @@
       </svg>
     </button>
 
-    <input v-model="amount" name="count" ref="counter" />
+    <input v-model="quantity" name="count" ref="counter" />
 
     <button type="button" aria-label="Добавить один товар" @click.prevent="incrementAmount">
       <svg width="10" height="10" fill="currentColor">
@@ -23,20 +23,20 @@ export default {
   name: "ProductCounter",
   props: ["count"],
   setup(props, { emit }) {
-    const amount = ref(props.count);
+    const quantity = ref(props.count);
 
     const incrementAmount = () => {
-      amount.value++;
+      quantity.value++;
     };
 
     const decrementAmount = () => {
-      if (amount.value > 0) {
-        amount.value--;
+      if (quantity.value > 0) {
+        quantity.value--;
       }
     };
 
-    // Watch for changes in amount and emit update:count event
-    watch(amount, (newValue) => {
+    // Watch for changes in quantity and emit update:count event
+    watch(quantity, (newValue) => {
       emit("update:count", newValue);
     });
 
@@ -55,7 +55,7 @@ export default {
     });
 
     return {
-      amount,
+      quantity,
       incrementAmount,
       decrementAmount,
       inputRef,

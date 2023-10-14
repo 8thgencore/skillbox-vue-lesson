@@ -17,7 +17,7 @@ export default createStore({
     resetCart(state) {
       state.cartProductsData = null;
     },
-    updateCartProductAmount(state, { basketItemId, quantity }) {
+    updateCartProductQuantity(state, { basketItemId, quantity }) {
       const cartItem = state.cartProductsData.items?.find((item) => item.id === basketItemId);
       if (cartItem) {
         cartItem.quantity = quantity;
@@ -37,8 +37,8 @@ export default createStore({
     syncCartProducts(state) {
       state.cartProducts = state.cartProductsData.map((item) => {
         return {
-          productId: item.product.id,
-          amount: item.quantity,
+          id: item.product.id,
+          quantity: item.quantity,
         };
       });
     },
@@ -89,8 +89,8 @@ export default createStore({
           context.commit("updateCartProductsData", response.data);
         });
     },
-    updateCartProductAmount(context, { basketItemId, quantity }) {
-      context.commit("updateCartProductAmount", { basketItemId, quantity });
+    updateCartProductQuantity(context, { basketItemId, quantity }) {
+      context.commit("updateCartProductQuantity", { basketItemId, quantity });
 
       if (quantity < 1) {
         return;

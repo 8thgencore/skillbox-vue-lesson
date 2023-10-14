@@ -26,7 +26,7 @@
             </fieldset>
 
             <div class="item__row">
-              <ProductCounter :count="productAmount" @update:count="doUpdate" />
+              <ProductCounter :count="productQuantity" @update:count="doUpdate" />
 
               <button class="button button--primery" type="submit" :disabled="productAddSending">
                 В корзину
@@ -71,12 +71,12 @@ export default defineComponent({
     const { product, category, colors, fetchProduct, status: productStatus } = useProduct();
 
     const selectedColor = ref("");
-    const productAmount = ref(1);
+    const productQuantity = ref(1);
     const productAdded = ref(false);
     const productAddSending = ref(false);
 
     const doUpdate = (value) => {
-      productAmount.value = value < 1 ? 1 : value;
+      productQuantity.value = value < 1 ? 1 : value;
     };
 
     const doAddToCart = () => {
@@ -87,7 +87,7 @@ export default defineComponent({
         .dispatch("addProductToCart", {
           productOfferId: product.value.id,
           colorId: selectedColor.value,
-          amount: productAmount.value,
+          quantity: productQuantity.value,
         })
         .then(() => {
           productAdded.value = true;
@@ -110,7 +110,7 @@ export default defineComponent({
 
     return {
       selectedColor,
-      productAmount,
+      productQuantity,
       productData: product,
       productStatus,
       productAdded,

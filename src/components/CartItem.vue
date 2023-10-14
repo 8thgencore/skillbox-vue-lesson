@@ -22,7 +22,7 @@
     </p>
     <span class="product__code"> Артикул: {{ item.id }} </span>
 
-    <ProductCounter :count="productAmount" @update:count="updateProductAmount" />
+    <ProductCounter :count="productQuantity" @update:count="updateProductQuantity" />
 
     <b class="product__price"> {{ totalPricePretty || "" }} ₽ </b>
 
@@ -54,14 +54,14 @@ export default {
     const $store = useStore();
 
     const state = reactive({
-      productAmount: props.item.quantity,
+      productQuantity: props.item.quantity,
     });
 
-    const totalPricePretty = numberFormat(state.productAmount * props.item.price);
+    const totalPricePretty = numberFormat(state.productQuantity * props.item.price);
 
-    const updateProductAmount = (value) => {
+    const updateProductQuantity = (value) => {
       if (value > 0) {
-        $store.dispatch("updateCartProductAmount", {
+        $store.dispatch("updateCartProductQuantity", {
           basketItemId: props.item.id,
           quantity: value,
         });
@@ -75,7 +75,7 @@ export default {
     return {
       ...toRefs(state),
       totalPricePretty,
-      updateProductAmount,
+      updateProductQuantity,
       deleteProduct,
     };
   },
