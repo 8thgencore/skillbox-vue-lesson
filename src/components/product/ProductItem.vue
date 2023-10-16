@@ -38,9 +38,9 @@
 <script>
 import { ref, computed, defineAsyncComponent, h, watch } from "vue";
 import numberFormat from "@/helpers/numberFormat";
-import ProductColors from "@/components/ProductColors.vue";
-import BaseModal from "@/components/BaseModal.vue";
-import ProductQuickView from "@/components/ProductQuickView.vue";
+import ProductColors from "@/components/product/ProductColors.vue";
+import BaseModal from "@/components/base/BaseModal.vue";
+import ProductQuickView from "@/components/product/ProductQuickView.vue";
 
 export default {
   props: {

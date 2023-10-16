@@ -106,7 +106,7 @@
 <script>
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
-import CartIndicator from "@/components/CartIndicator.vue";
+import CartIndicator from "@/components/cart/CartIndicator.vue";
 import useModal from "@/hooks/useModal.js";
 
 export default {

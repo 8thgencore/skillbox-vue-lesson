@@ -1,4 +1,4 @@
-import BaseFormField from "@/components/BaseFormField.vue";
+import BaseFormField from "@/components/base/BaseFormField.vue";
 
 export default {
   name: "BaseFormText",

@@ -115,8 +115,8 @@
 </template>
 
 <script>
-import BaseFormText from "@/components/BaseFormText.vue";
-import BaseFormTextarea from "@/components/BaseFormTextArea.vue";
+import BaseFormText from "@/components/base/BaseFormText.vue";
+import BaseFormTextarea from "@/components/base/BaseFormTextArea.vue";
 import OrderOptionsBlock from "@/components/OrderOptionsBlock.vue";
 import DataLoader from "@/components/DataLoader.vue";
 import axios from "axios";

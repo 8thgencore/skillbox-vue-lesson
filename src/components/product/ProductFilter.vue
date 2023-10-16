@@ -87,7 +87,12 @@
       </fieldset> -->
 
       <button class="filter__submit button button--primery" type="submit">Применить</button>
-      <button class="filter__reset button button--second" type="button" @click.prevent="reset">
+      <button
+        v-if="showResetButton"
+        class="filter__reset button button--second"
+        type="button"
+        @click.prevent="reset"
+      >
         Сбросить
       </button>
     </form>
@@ -96,9 +101,9 @@
 
 <script>
 import axios from "axios";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from "../../config";
 import { ref, watch, watchEffect, onMounted, computed, defineComponent } from "vue";
-import DataLoader from "./DataLoader.vue";
+import DataLoader from "@/components/DataLoader.vue";
 import cloneDeep from "lodash.clonedeep";
 
 export default defineComponent({
@@ -119,11 +124,15 @@ export default defineComponent({
 
     const categoryPropsLoading = ref(false);
 
+    const showResetButton = ref(false);
+
     const submit = () => {
       emit("update:priceFrom", currentPriceFrom.value);
       emit("update:priceTo", currentPriceTo.value);
       emit("update:categoryId", currentCategoryId.value);
       emit("update:categoryProps", currentCategoryProps.value);
+
+      showResetButton.value = true;
     };
 
     const reset = () => {
@@ -136,6 +145,8 @@ export default defineComponent({
       currentPriceTo.value = 0;
       currentCategoryId.value = 0;
       currentCategoryProps.value = new Map();
+
+      showResetButton.value = false;
     };
 
     watchEffect(() => {
@@ -234,6 +245,8 @@ export default defineComponent({
 
       categoryPropsLoading,
       addCategoryPropOption,
+
+      showResetButton,
 
       submit,
       reset,

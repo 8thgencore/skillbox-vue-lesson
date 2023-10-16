@@ -59,7 +59,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import CartItem from "@/components/CartItem.vue";
+import CartItem from "@/components/cart/CartItem.vue";
 import DataLoader from "@/components/DataLoader.vue";
 import DataLoadingError from "@/components/DataLoadingError.vue";
 import { defineComponent } from "vue";

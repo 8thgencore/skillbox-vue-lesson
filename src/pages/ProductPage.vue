@@ -118,12 +118,12 @@
 </template>
 
 <script>
-import ProductColors from "@/components/ProductColors.vue";
-import ProductCounter from "@/components/ProductCounter.vue";
+import ProductColors from "@/components/product/ProductColors.vue";
+import ProductCounter from "@/components/product/ProductCounter.vue";
 import DataLoadingError from "@/components/DataLoadingError.vue";
 import DataLoader from "@/components/DataLoader.vue";
 import DataProcessedSuccessfullyItem from "@/components/DataProcessedSuccessfullyItem.vue";
-import BaseModal from "@/components/BaseModal.vue";
+import BaseModal from "@/components/base/BaseModal.vue";
 import { defineComponent, ref, watch, computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";

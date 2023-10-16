@@ -43,7 +43,7 @@
 import { reactive, toRefs } from "vue";
 import numberFormat from "@/helpers/numberFormat";
 import { useStore } from "vuex";
-import ProductCounter from "@/components/ProductCounter.vue";
+import ProductCounter from "@/components/product/ProductCounter.vue";
 
 export default {
   name: "CartItem",

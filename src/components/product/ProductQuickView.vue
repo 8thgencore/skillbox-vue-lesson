@@ -46,8 +46,8 @@ import { useStore } from "vuex";
 import DataLoadingError from "@/components/DataLoadingError.vue";
 import DataLoader from "@/components/DataLoader.vue";
 import DataProcessedSuccessfullyItem from "@/components/DataProcessedSuccessfullyItem.vue";
-import ProductColors from "@/components/ProductColors.vue";
-import ProductCounter from "@/components/ProductCounter.vue";
+import ProductColors from "@/components/product/ProductColors.vue";
+import ProductCounter from "@/components/product/ProductCounter.vue";
 
 import { ref, defineComponent, watch } from "vue";
 import useProduct from "@/hooks/useProduct";
